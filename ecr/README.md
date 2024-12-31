@@ -92,7 +92,7 @@ module "ecr_registry" {
           "ecr:ReplicateImage"
         ],
         Resource = [
-          "arn:aws:ecr:us-east-1:012345678901:repository/*"
+          "arn:aws:ecr:ca-central-1:012345678901:repository/*"
         ]
       }, {
         Sid    = "dockerhub",
@@ -105,7 +105,7 @@ module "ecr_registry" {
           "ecr:BatchImportUpstreamImage"
         ],
         Resource = [
-          "arn:aws:ecr:us-east-1:012345678901:repository/dockerhub/*"
+          "arn:aws:ecr:ca-central-1:012345678901:repository/dockerhub/*"
         ]
       }
     ]
@@ -120,7 +120,7 @@ module "ecr_registry" {
     dockerhub = {
       ecr_repository_prefix = "dockerhub"
       upstream_registry_url = "registry-1.docker.io"
-      credential_arn        = "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/dockerhub"
+      credential_arn        = "arn:aws:secretsmanager:ca-central-1:123456789:secret:ecr-pullthroughcache/dockerhub"
     }
   }
 

@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 locals {
-  region = "us-east-1"
-  name   = "ecr-ex-${basename(path.cwd)}"
+  region = "ca-central-1"
+  name   = "${var.website}-ecr-${var.env}-${var.region_short_name}"
 
   account_id = data.aws_caller_identity.current.account_id
 
