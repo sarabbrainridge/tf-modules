@@ -257,6 +257,22 @@ No modules.
 | <a name="input_repository_type"></a> [repository\_type](#input\_repository\_type) | The type of repository to create. Either `public` or `private` | `string` | `"private"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |
 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyDeleteRepository",
+      "Effect": "Deny",
+      "Action": [
+        "ecr:DeleteRepository",
+        "ecr:DeleteRepositoryPolicy"
+      ],
+      "Resource": "arn:aws:ecr:region:account-id:repository/repo-name"
+    }
+  ]
+}
+
+
 ## Outputs
 
 | Name | Description |
